@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Shakespearean Insults</title>
+		<style>
+			body{margin:0;padding:5rem 2rem 2rem;background:white;color:#333;text-align:center;font:xx-large/1.5 Helvetica,Arial,sans-serif}
+			h1{letter-spacing:-0.15rem}
+			h1:first-letter{text-transform:uppercase}
+			input{border-radius:.3rem;padding:1rem 1.5rem;background:silver;border:none;cursor:pointer;font-size:xx-large}
+			input:hover{background:#ccc}
+		</style>
+		<script>
+		function PickRandom(source){
+			return source[Math.floor(Math.random() * source.length)];
+		}
+
+		function Insult(){
+		
+			modifiers1 = ["artless"," bawdy"," beslubbering"," bootless"," churlish"," cockered"," clouted"," craven"," currish"," dankish"," dissembling"," droning"," errant"," fawning"," fobbing"," froward"," frothy"," gleekish"," goatish"," gorbellied"," impertinent"," infectuous"," jarring"," lumpish"," mammering"," mangled"," mewling"," paunchy"," pribbling"," puking"," puny"," qualling"," rank"," reeky"," roguish"," ruttish"," saucy"," spleeny"," spongy"," surly"," tottering"," unmuzzled"," vain"," venomed"," villainous"," warped"," wayward"," weedy","yeasty"],
+			modifiers2 = ["base-court"," bat-fowling"," beef-witted"," bettle-headed"," boil-brained"," clapper-clawed"," clay-brained"," common-kissing"," crook-pated"," dismal-dreaming"," dizzy-eyed"," doghearted"," dread-bolted"," earth-vexing"," elf-skinned"," fat-kidneyed"," fen-sucked"," flap-mouthed"," fly-bitten"," folly-fallen"," fool-born"," full-gorged"," guts-griping"," half-faced"," hasty-witted"," hedge-born"," hell-hated"," idle-headed"," ill-breeding"," ill-nurtured"," knotty-pated"," milk-livered"," motley-minded"," onion-eyed"," plume-plucking"," pottle-deep"," pox-marked"," reeling-ripe"," rough-hewn"," rude-growing"," rump-fed"," shard-borne"," sheep-biting"," spur-galled"," swag-bellied"," tardy-gaited"," tickle-brained"," toad-spotted"," unchin-snouted","weather-bitten"],
+			nouns = ["apple-john","baggage","barnacle"," bladder"," boar-pig"," bugbear"," bum-baily"," canker-blossom"," clack-dish"," clotpole"," coxcomb"," codpiece"," death-token"," dewberry"," flap-dragon"," flax-wench"," flirt-gill"," foot-licker"," fustilarian"," giglet"," gudgeon"," haggard"," harpy"," hedge-pig"," horn-beast"," hugger-mugger"," joithead"," lewdster"," lout"," maggot-pie"," malt-worm"," mammet"," measle"," minnow"," miscreant"," moldwarp"," mumble-news"," nut-hook"," pidgeon-egg"," pignut"," puttock"," pumpion"," ratsbane"," scut"," skainsmate"," strumpet"," varlot"," vassal"," whey-face","wagtail"], modifier1 = "", modifier2 = "", noun = "", second = true;
+
+			modifier1 = PickRandom(modifiers1);
+			
+			// Will we or won't we show the second definition?
+			second = Math.random() < 0.5 ? true : false;
+			if (second === true) {
+				modifier2 = " " + PickRandom(modifiers2);
+			}else{
+				modifier2 = "";
+			}
+			noun = PickRandom(nouns);
+			
+			document.querySelector("h1").innerHTML = modifier1 + modifier2 + " " + noun;
+		}
+		window.onload = Insult;
+		</script>
+	</head>
+
+	<body>
+		<h1><noscript>The page won't work without JavaScript.</noscript></h1>
+		<input type="submit" onclick="Insult();" value="Moar!">
+		<p><a href="http://www.shakespeareswords.com/Glossary">Shakespeare's Words</a></p>
+	</body>
+</html>
